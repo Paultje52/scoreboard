@@ -18,6 +18,7 @@
   height: 100%;
   width: 50%;
   font-size: 300px;
+  user-select: none
 }
 .score:first-of-type {
   background-color: #1677ab;
