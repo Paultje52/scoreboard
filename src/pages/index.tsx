@@ -11,6 +11,11 @@ export default function Home() {
     setIsEditing(!isEditing);
   };
 
+  const [isResetting, setIsResetting] = useState(false);
+  const toggleReset = () => {
+    setIsResetting(!isResetting);
+  };
+
   const addBlueScore = () => {
     if (isEditing || blueScore >= 99) return;
     setBlueScore(blueScore + 1);
@@ -27,6 +32,21 @@ export default function Home() {
   const overrideRedScore = (score: number) => {
     if (score < 0 || score >= 99) return;
     setRedScore(score);
+  };
+
+  const onResetClick = (
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => {
+    if (event.target !== event.currentTarget) return;
+
+    const height = event.currentTarget.offsetHeight;
+    if (event.clientY < height / 10) return;
+
+    const width = event.currentTarget.offsetWidth;
+    const colour = event.clientX < width / 2 ? "blue" : "red";
+
+    if (colour === "blue") overrideBlueScore(0);
+    else overrideRedScore(0);
   };
 
   return (
@@ -54,7 +74,7 @@ export default function Home() {
       <div className={styles.text}>
         <div>
           <a onClick={toggleEdit}>{isEditing ? "Done" : "Edit"}</a>
-          <a>Reset</a>
+          <a onClick={toggleReset}>Reset</a>
         </div>
         <div>
           <a href="https://github.com/Paultje52/scoreboard" target="_blank">
@@ -62,6 +82,12 @@ export default function Home() {
           </a>
         </div>
       </div>
+      {isResetting && (
+        <div className={styles.resetOverlay} onClick={onResetClick}>
+          <span onClick={toggleReset}>X</span>
+          <h1>Click a side to reset</h1>
+        </div>
+      )}
     </div>
   );
 }
