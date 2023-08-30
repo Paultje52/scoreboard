@@ -1,6 +1,7 @@
 .container {
   height: 100%;
   width: 100%;
+  color: #fff;
 }
 
 .scores {
@@ -16,6 +17,13 @@
   align-items: center;
   height: 100vh;
   width: 50vw;
+  font-size: 300px;
+}
+.score:first-of-type {
+  background-color: #1677ab;
+}
+.score:last-of-type {
+  background-color: #ca4949;
 }
 
 .text {
