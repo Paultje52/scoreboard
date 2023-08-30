@@ -1,3 +1,9 @@
+# Next-pwa
+sw.js
+sw.js.map
+workbox-*.js
+workbox-*.js.map
+
 # Logs
 logs
 *.log

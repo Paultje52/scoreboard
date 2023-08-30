@@ -1,0 +1,17 @@
+{
+  "short_name": "Scoreboard",
+  "name": "Scoreboard without ads",
+  "description": "A scoreboard app without ads",
+  "version": "1.0.0",
+
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "orientation": "landscape",
+
+  "icons": [{
+    "src": "/icon.png",
+    "type": "image/png",
+    "sizes": "256x256"
+  }]
+}
